@@ -6,13 +6,7 @@ layout: default
 title: Home Noir
 ---
 
-&nbsp;
-
-&nbsp;
-
-
 We're building the home for those who dare to question, invent and imagine a better future.
-{: style="text-align: center;"}
-
-Home Noir.
-{: style="text-align: center;"}
+<br><br>
+Home Noir.<br>
+{: style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"}
