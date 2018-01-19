@@ -10,4 +10,9 @@ title: Home Noir
 
 &nbsp;
 
-We're building the home for those who dare to question, invent and imagine a better future. Home Noir.
+
+We're building the home for those who dare to question, invent and imagine a better future.
+{: style="text-align: center;"}
+
+Home Noir.
+{: style="text-align: center;"}
