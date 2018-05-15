@@ -30,7 +30,7 @@
 			<div id="video-overlay">
 				<div id="video-container">
 					<div id="video-close">
-						<img id="cookies-close" src="images/cross-white.svg" class="close" />
+						<img src="images/cross-white.svg" class="close" />
 					</div>
 					<video id="video" poster="images/fallback.jpg" controls playsinline>
 						<source src="images/Home_Noir_IntroVideo.mp4">
@@ -71,7 +71,7 @@
 							<img src="images/Luca.jpg" />
 						</div>
 						<div class="biography">
-							<h3>Luca Longobardi<br />Founder & CEO</h3>
+							<h3>Luca Longobardi<br />Founder &amp; CEO</h3>
 							<p>Serial Entrepreneur with 20+ years experience in hospitality & banking.</p>
 							<p>Ladenburg Thalmann, State Capital, 99 Fahrenheit, NoHi Hospitality Group</p>
 							<p>
@@ -100,7 +100,7 @@
 						</div>
 						<div class="biography">
 							<h3>Gareth Rowlands<br />CTO</h3>
-							<p>Technology professional with 15+ years experience building consumer-facing digital products.</p>
+							<p>Technology professional with 20+ years experience building consumer-facing digital products.</p>
 							<p>AKQA, Coca Cola, Fiat, Dyson</p>
 							<p>
 								<a href="https://uk.linkedin.com/in/garethrowlands" target="_blank"><img width="18" src="images/linkedin.svg" /></a>
@@ -113,9 +113,9 @@
 							<img src="images/Rahima.jpg" />
 						</div>
 						<div class="biography">
-							<h3>Rahima Valji<br />Head of Partnerships</h3>
+							<h3>Rahima Valji<br />Chief of Partnerships</h3>
 							<p>Commercial executive with 18+ years in tech and corporate development.</p>
-							<p>Eurostar, Groupon, Dell, P&G, INSEAD.</p>
+							<p>Eurostar, Groupon, Dell, P&amp;G, INSEAD.</p>
 							<p>
 								<a href="https://uk.linkedin.com/in/rahimavalji" target="_blank"><img width="18" src="images/linkedin.svg" /></a>
 							</p>
@@ -191,7 +191,12 @@
 
 				$('#video-overlay, #video-close').on('click', function() {
 					$('#video').get(0).pause();
-					$('#video-overlay').fadeOut('fast');
+					$('#video-overlay').fadeOut('slow');
+				});
+
+				$('#video').on('ended', function() {
+					$('#video').get(0).pause();
+					$('#video-overlay').fadeOut('slow');
 				});
 
 				$("#video-container").click(function(e){
@@ -208,6 +213,9 @@
 				  }
 				});
 
+				if( $('#mce-EMAIL').val() ) {
+					$('#email-label').addClass('active');
+				}
 				$('#mce-EMAIL').on('focus', function() {
 					$('#email-label').addClass('active');
 				});
@@ -236,6 +244,5 @@
 
 			});
 		</script>
-
-	</body>
+</body>
 </html>
