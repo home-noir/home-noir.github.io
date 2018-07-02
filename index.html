@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home Noir</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/jquery-3.3.1.min.js"></script>
+    <script src="scripts/jquery.validate.js"></script>
+    <script src="scripts/scrollreveal.min.js"></script>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+
+
+<section id="header" style="display: flex; flex-direction: column">
+
+    <div id="top-header">
+        <div class="logo" id="logo" style="display: none"><img src="images/logo.png"/></div>
+        <button id="sign-up-button" style="display: none">stay connected <img src="./images/right-arrow-of-straight-thin-line.svg"
+                                                        style="height: 15px;  margin-left: 3px;" alt=""></button>
+    </div>
+    <div class="content" id="content" style="display:none;">
+        <div class="copy">
+            <h1>The space for blockchain minds <br>
+                to collide, create and inspire</h1>
+            <p>Shaping the future, one block at a time</p>
+        </div>
+        <button id="play-video">
+            <img src="images/play-button.svg"/>
+            LEARN MORE
+        </button>
+    </div>
+
+    <div id="video-overlay">
+        <div id="video-container">
+            <div id="video-close">
+                <img src="images/cross-white.svg" class="close"/>
+            </div>
+            <video id="video" poster="images/videoImage.png" controls playsinline>
+                <source src="images/Introducing%20Home%20Noir.mp4">
+            </video>
+        </div>
+    </div>
+</section>
+<!-- Begin MailChimp Signup Form -->
+
+<div class="form-wrapper" id="custom-form">
+    <div id="mc_embed_signup">
+        <div class="top"></div>
+        <img id="close-form" src="./images/cross-white.svg" alt="close">
+        <form action="https://homenoir.us18.list-manage.com/subscribe/post?u=1ef7bc0177e4caf5369888114&amp;id=39af6d79e5"
+              method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+              target="_blank" novalidate>
+
+            <div id="mc_embed_signup_scroll">
+                <h2 style="font-family: Proxima Nova Bold;">Subscribe to our mailing list</h2>
+                <div class="mc-field-group">
+                    <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
+                    </label>
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                </div>
+                <h2 style="font-family: Proxima Nova Bold;">Marketing Permissions</h2>
+                <p> Home Noir will use the information you provide on this form to be in touch with you and to provide
+                    updates and marketing via the email address your provided</p>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                                                                          name="b_1ef7bc0177e4caf5369888114_39af6d79e5"
+                                                                                          tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                                          class="button"></div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+<script type='text/javascript'>(function ($) {
+    window.fnames = new Array();
+    window.ftypes = new Array();
+    fnames[0] = 'EMAIL';
+    ftypes[0] = 'email';
+}(jQuery));
+var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
+<div id="cookies" style="display: none;">
+    <div class="content">This website uses cookies to ensure you get the best experience.</div>
+    <a id="cookies-close" href="#">OK, I understand</a>
+</div>
+
+<section class="footer">
+    <img src="./images/closed-envelope.svg" alt="contact">
+    <a class="mail" href="mailto:hello@homenoir.com">Contact us</a>
+    <div class="footer-nav">
+        <a class="footer-a" href="./PrivacyPolicy.html">PRIVACY POLICY</a>
+        <a class="footer-a" href="./TermsAndConditions.html">TERMS AND CONDITIONS</a>
+        <a class="footer-a" href="./CookiePolicy.html">COOKIE POLICY</a>
+    </div>
+    <h2>© Home Noir Limited. All rights reserved.</h2>
+</section>
+
+
+
+<script>
+
+    $(document).ready(function () {
+        (function () {
+            if(checkCookie())
+            {
+                $('#cookies').css('display','none');
+                $('#header').css("height", `100vh`);
+                $('#video').css("height", `100vh`);
+            }else{
+                $('#cookies').css('display','flex');
+                $('#header').css("height", `calc(100vh - 100px)`);
+                $('#video').css("height", `calc(100vh - 100px)`);
+            }
+            $('#logo').css('display','block');
+            $('#sign-up-button').css('display','flex');
+            $('#content').css('display','flex');
+        })();
+        $('#cookies-close').on('click', function () {
+            $('#cookies').slideUp('fast', function () {
+                var h = $('.footer').css('height');
+                if (window.matchMedia("(max-device-width:  767.98px)").matches) {
+                    $('#header').css("height", `calc(100vh)`);
+                    $('#video').css("height", `calc(100vh)`);
+                } else {
+                    $('#header').css("height", `calc(100vh) `);
+                    $('#video').css("height", `calc(100vh) `);
+                }
+            });
+        });
+        // $('body').not('#mc_embed_signup, .top , form').click(function(e) {
+        //     e.preventDefault();
+        //     $('body,html').css('overflow','visible');
+        //     $('body,html').css('position','static');
+        //     $('#top-header').css('display','flex');
+        //     $('#custom-form,#mc-embedded-subscribe-form,form').fadeOut('fast');
+        // });
+        $('#custom-form').click(function(e)
+        {
+            var container = $("#mc_embed_signup,#sign-up-button");
+
+            // if the target of the click isn't the container nor a descendant of the container
+            if (!container.is(e.target) && container.has(e.target).length === 0)
+            {
+                e.preventDefault();
+                $('body,html').css('overflow','visible');
+                $('body,html').css('position','static');
+                $('#top-header').css('display','flex');
+                $('#custom-form,#mc-embedded-subscribe-form,form').fadeOut('fast');
+            }
+        });
+        $('#play-video').on('click', function () {
+            $('#video-overlay')
+                .css("display", "flex")
+                .hide()
+                .fadeIn('fast', function () {
+                    $('#video').get(0).play();
+                });
+        });
+
+        $('#video-overlay, #video-close').on('click', function () {
+            $('#video').get(0).pause();
+            $('#video-overlay').fadeOut('slow');
+        });
+
+        $('#video').on('ended', function () {
+            $('#video').get(0).pause();
+            $('#video-overlay').fadeOut('slow');
+        });
+
+        $("#video-container").click(function (e) {
+            e.stopPropagation();
+        });
+
+        $("#sign-up-button").click(function (e) {
+            e.preventDefault();
+            $('body,html').css('overflow', 'hidden');
+            $('body,html').css('position', 'relative');
+            $('body,html').css('height','100%');
+            $('#top-header').css('display','none');
+            $('#custom-form,#mc-embedded-subscribe-form,form').fadeIn('fast');
+        });
+        $('#close-form').click(function (e) {
+            e.preventDefault();
+            $('body,html').css('overflow','visible');
+            $('body,html').css('position','static');
+            $('#top-header').css('display','flex');
+            $('#custom-form,#mc-embedded-subscribe-form,form').fadeOut('fast');
+        })
+
+        // Scroll reveal settings
+        window.sr = ScrollReveal({
+            duration: 650,
+            origin: 'bottom',
+            distance: '30px',
+            easing: 'ease-out',
+            scale: 1
+        });
+
+        (function () {
+
+
+
+            for (let i = 0; i < document.getElementsByClassName('footer-a').length; i++) {
+                if (document.getElementsByClassName('footer-a')[i].href != document.URL) {
+                    document.getElementsByClassName('footer-a')[i].style.textDecoration = 'none';
+                } else {
+                    document.getElementsByClassName('footer-a')[i].style.textDecoration = 'underline';
+                    document.getElementsByClassName('footer-a')[i].style.color = '#b287ab';
+
+                }
+            }
+        })();
+
+        // for (let i in document.querySelectorAll('.footer-a')) {
+        //     document.querySelectorAll('.footer-a')[i].addEventListener('onclick', () => {
+        //         alert(this.attr('href'));
+        //         // for (let i in  $('a.footer-a')) {
+        //         // if ($('a.footer-a').attr('id') != url.charAt(url.length - 1)) {
+        //         //     $('a.footer-a').css('text-decoration', 'none');
+        //         // }
+        //         // }
+        //     },false);
+        // }
+
+        // Initiate scroll reveal
+
+
+        sr.reveal('#header .content .copy', {delay: 800});
+        sr.reveal('#header .content button', {delay: 1200});
+        sr.reveal('#top-header .logo', {delay: 400});
+        sr.reveal('#top-header button', {delay: 1600});
+    });
+</script>
+
+
+<script>
+    window.ga = window.ga || function () {
+        (ga.q = ga.q || []).push(arguments)
+    };
+    ga.l = +new Date;
+    ga('create', 'UA-119341132-1', 'auto');
+    ga('send', 'pageview');
+    document.getElementById('play-video').addEventListener('click', function () {
+        ga('send', 'event', 'Videos', 'play', 'Video-was-started');
+    });
+    document.getElementById('video-close').addEventListener('click', function () {
+        ga('send', 'event', 'Videos', 'close', 'Video-was-closed');
+    });
+    document.getElementById('video').addEventListener('pause', function () {
+        ga('send', 'event', 'Videos', 'pause', 'Video-was-pauses');
+    });
+    document.getElementById('video').addEventListener('ended', function () {
+        ga('send', 'event', 'Videos', 'ended', 'Video-was-watched');
+    });
+
+
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script type="text/javascript">
+    function checkCookie() {
+        var agreed = getCookie("agreed");
+        if (agreed != "") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    document.getElementById('cookies-close').addEventListener('click',()=>{
+        setCookie('agreed','true',360);
+    },false)
+</script>
+
+</body>
+</html>
