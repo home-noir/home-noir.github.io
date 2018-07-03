@@ -88,17 +88,16 @@
 var $mcj = jQuery.noConflict(true);</script>
 <!--End mc_embed_signup-->
 <div id="cookies" style="display: none;">
-    <div class="content">This website uses cookies to ensure you get the best experience.</div>
+    <p class="content">This website uses cookies to ensure you get the best experience.</p>
     <a id="cookies-close" href="#">OK, I understand</a>
 </div>
 
 <section class="footer">
-    <img src="./images/closed-envelope.svg" alt="contact">
-    <a class="mail" href="mailto:hello@homenoir.com">Contact us</a>
     <div class="footer-nav">
+        <a class="footer-a" href="mailto:hello@homenoir.com" style="text-decoration: none">CONTACTS US</a>
         <a class="footer-a" href="./PrivacyPolicy.html">PRIVACY POLICY</a>
-        <a class="footer-a" href="./TermsAndConditions.html">TERMS AND CONDITIONS</a>
         <a class="footer-a" href="./CookiePolicy.html">COOKIE POLICY</a>
+        <a class="footer-a" href="./TermsAndConditions.html">TERMS AND CONDITIONS</a>
     </div>
     <h2>© Home Noir Limited. All rights reserved.</h2>
 </section>
@@ -112,12 +111,12 @@ var $mcj = jQuery.noConflict(true);</script>
             if(checkCookie())
             {
                 $('#cookies').css('display','none');
-                $('#header').css("height", `100vh`);
+                $('#header').css("height", `88vh`);
                 $('#video').css("height", `100vh`);
             }else{
                 $('#cookies').css('display','flex');
-                $('#header').css("height", `calc(100vh - 100px)`);
-                $('#video').css("height", `calc(100vh - 100px)`);
+                $('#header').css("height", `calc(88vh)`);
+                $('#video').css("height", `calc(100vh)`);
             }
             $('#logo').css('display','block');
             $('#sign-up-button').css('display','flex');
@@ -127,10 +126,10 @@ var $mcj = jQuery.noConflict(true);</script>
             $('#cookies').slideUp('fast', function () {
                 var h = $('.footer').css('height');
                 if (window.matchMedia("(max-device-width:  767.98px)").matches) {
-                    $('#header').css("height", `calc(100vh)`);
+                    $('#header').css("height", `calc(88vh)`);
                     $('#video').css("height", `calc(100vh)`);
                 } else {
-                    $('#header').css("height", `calc(100vh) `);
+                    $('#header').css("height", `calc(88vh) `);
                     $('#video').css("height", `calc(100vh) `);
                 }
             });
