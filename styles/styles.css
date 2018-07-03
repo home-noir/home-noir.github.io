@@ -19,6 +19,15 @@
     font-weight: Bold;
     font-style: normal;
 }
+@font-face {
+    font-family: Proxima Nova Light;
+    src: url("../assets/font/ProximaNova-Light.ttf") format('embedded-opentype'),
+    url("../assets/font/ProximaNova-Light.ttf") format('woff'),
+    url("../assets/font/ProximaNova-Light.ttf") format('truetype'),
+    url("../assets/font/ProximaNova-Light.ttf") format('svg');
+    font-weight: Bold;
+    font-style: normal;
+}
 
 * {
     outline: none;
@@ -66,33 +75,35 @@ body {
 }
 
 #cookies {
-    height: 100px;
-    position: relative;
+    height: 12vh;
+    position: fixed;
+    bottom: 0;
     z-index: 4;
-    flex-direction: column;
     -ms-flex-align: center;
     align-items: center;
     background-color: white;
     color: #373737;
     display: -ms-flexbox;
-    /*display: flex;*/
+    width: 100%;
     -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 20px 25px;
+    justify-content: center;
     font-size: 10px;
     font-size: .625rem;
 }
 
 #cookies .content {
+    height: auto!important;
+    line-height: 1;
+    text-align: center;
+    margin: 0;
     font-size: 14px;
-    -ms-flex: 1;
-    flex: 1;
+
 }
 
 #cookies a {
+    margin: 0 0 0 5px;
     cursor: pointer;
     font-size: 14px;
-    margin-top: 10px;
     background-color: #373737;
     color: #f4f4f4;
     border-radius: 5px;
@@ -182,7 +193,7 @@ body {
 }
 
 #header .content .copy h1 {
-
+    margin-bottom: 3px!important;
     font-family: Proxima Nova Bold;
     font-size: 18px;
     font-size: 48px;
@@ -195,9 +206,10 @@ body {
     margin: 0;
 }
 
-@media only screen and (min-width: 680px) {
+@media only screen and (min-device-width: 800px) {
     #header {
     }
+
 
     #header .content .logo img {
         height: 120px;
@@ -309,7 +321,7 @@ body {
     display: none;
     height: 100%;
     z-index: 20;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
 }
@@ -370,7 +382,7 @@ button {
 
 .content button {
     stroke: white;
-    margin-top: 100px;
+    margin-top: 60px;
     vertical-align: center;
     display: flex;
     align-items: center;
@@ -431,7 +443,7 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5px 5px 10px 5px;
+    height: 12vh;
     background-color: #e8e8e8;
 }
 
@@ -444,17 +456,15 @@ button:hover {
     margin: 5px 0 0;
     font-size: 16px;
     line-height: 24px;
-    font-family: Proxima Nova Bold;
+    font-family: Proxima Nova Light;
 }
 
 .footer a.mail {
-    margin: 5px !important;
 }
 
 .footer a {
     text-align: center;
     letter-spacing: .1em;
-    margin: 2px 5px;
     font-size: 14px;
     line-height: 24px;
     color: #373737;
@@ -480,7 +490,7 @@ button:hover {
 }
 
 .footer-nav {
-    width: 50%;
+    width: 80% !important;
     display: flex;
     justify-content: space-between;
 }
@@ -495,7 +505,7 @@ button:hover {
 }
 
 .footer-a {
-    height: auto;
+
 }
 
 .privacy-policy {
@@ -603,18 +613,36 @@ ul {
     .footer-nav{
         width: 80% !important;
     }
+
+}
+@media screen and  (max-device-width:  500px) {
+    #cookies a{
+        font-size: 12px;
+    }
+    .footer-nav a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        word-spacing: 100px;
+    }
+    #cookies .content{
+        font-size: 12px;
+    }
 }
 @media screen and  (max-device-width:  767.98px) {
     #newsletter-form {
         padding: 75px 25px!important;
     }
+    #cookies a{
+    }
+    #cookies .content{
+        width: 60%;}
 
     #top-header {
         padding: 20px 5% !important;
     }
-    #header,#video{
-        height: 100vh!important;
-    }
+
 
 
 
@@ -630,13 +658,16 @@ ul {
     .footer {
     }
 
-    .footer .footer-nav {
-        width: 100% !important;
-    }
+
 
     .footer .footer-nav a, .footer a, .footer h2 {
-        font-size: 14px!important;
+        font-size: 10px!important;
+        line-height: 1;
     }
+    .footer-nav{
+        width: 98% !important;
+    }
+
 
     .one-policy {
         padding: 0 10px;
@@ -697,7 +728,7 @@ ul {
     }
 }
 
-@media screen and (orientation: landscape) and (max-device-width:  767.98px) {
+@media screen and (orientation: landscape) and (max-device-width:  800px) {
     .form-wrapper .top{
         height: 0!important;
     }
@@ -739,7 +770,7 @@ ul {
         height: 100vh;
     }
     .footer-nav{
-        width: 90% !important;
+        width: 80% !important;
     }
     #video {
         height: 100vh;

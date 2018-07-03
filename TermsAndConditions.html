@@ -293,23 +293,79 @@ var $mcj = jQuery.noConflict(true);</script>
         </div>
     </div>
 </section>
+<div id="cookies" style="display: none;">
+    <div class="content">This website uses cookies to ensure you get the best experience.</div>
+    <a id="cookies-close" href="#">OK, I understand</a>
+</div>
 <section class="footer">
-    <img src="./images/closed-envelope.svg" alt="contact">
-    <a class="mail" href="mailto:hello@homenoir.com">Contact us</a>
     <div class="footer-nav">
-        <a class="footer-a" href="PrivacyPolicy.html">PRIVACY POLICY</a>
-        <a class="footer-a" href="TermsAndConditions.html">TERMS AND CONDITIONS</a>
-        <a class="footer-a" href="CookiePolicy.html">COOKIE POLICY</a>
+        <a class="footer-a" href="mailto:hello@homenoir.com" style="text-decoration: none">CONTACTS US</a>
+        <a class="footer-a" href="./PrivacyPolicy.html">PRIVACY POLICY</a>
+        <a class="footer-a" href="./CookiePolicy.html">COOKIE POLICY</a>
+        <a class="footer-a" href="./TermsAndConditions.html">TERMS AND CONDITIONS</a>
     </div>
     <h2>© Home Noir Limited. All rights reserved.</h2>
 </section>
 
 
+<script type="text/javascript">
+    function checkCookie() {
+        var agreed = getCookie("agreed");
+        if (agreed != "") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    document.getElementById('cookies-close').addEventListener('click',()=>{
+        setCookie('agreed','true',360);
+    },false)
+</script>
 
 <script>
 
     $(document).ready(function () {
-
+        (function () {
+            if(checkCookie())
+            {
+                $('#cookies').css('display','none');
+            }else{
+                $('#cookies').css('display','flex');
+            }
+        })();
+        $('#cookies-close').on('click', function () {
+            $('#cookies').slideUp('fast', function () {
+                var h = $('.footer').css('height');
+                if (window.matchMedia("(max-device-width:  767.98px)").matches) {
+                    $('#header').css("height", `calc(88vh)`);
+                    $('#video').css("height", `calc(100vh)`);
+                } else {
+                    $('#header').css("height", `calc(88vh) `);
+                    $('#video').css("height", `calc(100vh) `);
+                }
+            });
+        });
         $("#sign-up-button").click(function (e) {
             e.preventDefault();
             if (!window.matchMedia("(max-device-width: 890px)").matches&&!window.matchMedia("screen and (orientation: landscape) and (max-device-width: 890px)").matches) {
